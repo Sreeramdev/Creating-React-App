@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import ClassComponents from "./components/ClassComponents";
+import FunctionalComponent from "./components/FunctionalComponent";
+import { useState } from "react";
 function App() {
+  const company = "devtown";
+  const [name, setName] = useState("sreeram")
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Class component</h1>
+      <ClassComponents></ClassComponents>
+      <br />
+      <h1>Functional component</h1>
+      <FunctionalComponent name = {name} age = {21} company={company} setName={setName}/>
     </div>
   );
 }
