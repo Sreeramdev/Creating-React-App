@@ -1,0 +1,17 @@
+# .woodpecker.yml
+---
+when:
+  - event: push
+    branch: main
+
+steps:
+  - name: build-hello-world-image
+    image: docker:24.0.5-dind
+    privileged: true
+    environment:
+      DOCKER_TLS_CERTDIR: ""
+    commands:
+      - echo "Building and tagging hello-world Docker image..."
+      - echo 'FROM hello-world' > Dockerfile
+      - docker build -t my-hello-world:latest .
+      - docker images my-hello-world
